@@ -16,36 +16,40 @@ import { Textarea } from "./ui/textarea";
 import { useState } from "react";
 import { v4 } from "uuid";
 import { Task } from "@/types/globalinterfaces";
-import { toast } from "react-toastify";
+import { useToast } from "@/components/ui/use-toast";
 
 export default function AddTask() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const { toast } = useToast();
   const onSubmitHandler = () => {
-    if (title.length === 0) { // Do not add task if title is empty
-      toast.warning("Title is empty", {
-        position: "bottom-right",
+    if (title.length === 0) {
+      // Do not add task if title is empty
+      toast({
+        title: "Warning: Empty Title",
+        description: "Title should not be empty",
       });
       return;
     }
     try {
-        const newTask: Task = {
-            id: v4(), //generate uuid
-            title,
-            description,
-            completed: false,
-            timestamp: new Date().toISOString(),
-          };
-          console.log(newTask); // add the new task to the main list of task
-          toast.success("Task added successfully", {
-            position: "bottom-right",
-          });
-          setTitle("");
-          setDescription("");
+      const newTask: Task = {
+        id: v4(), //generate uuid
+        title,
+        description,
+        completed: false,
+        timestamp: new Date().toISOString(),
+      };
+      console.log(newTask); // add the new task to the main list of task
+      toast({
+        title: "Task: "+newTask.title,
+        description: "Added successfully"
+      });
+      setTitle("");
+      setDescription("");
     } catch (error) {
-        toast.error("Something went wrong!", {
-            position: "bottom-right",
-          });
+      toast({
+        description: "Something Went Wrong!",
+      });
     }
   };
   return (
