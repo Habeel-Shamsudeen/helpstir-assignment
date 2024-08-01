@@ -40,7 +40,7 @@ export default function Home() {
             {filteredTasks
               .sort((a: any, b: any) => a.completed - b.completed) // sort task to make not completed task on top
               .map((task) => (
-                <TodoCard task={task} setTodos={setTodos} />
+                <TodoCard task={task} setTodos={setTodos} key={task.id}/>
               ))}
           </div>
         </div>

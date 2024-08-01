@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Helpstir Assignment - Todo List Application
 
-## Getting Started
+## Overview
 
-First, run the development server:
+This Todo List application is built using Next.js with TypeScript. It includes the following features:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Create Task: Allows users to add new tasks.
+- Update Task: Allows users to edit existing tasks.
+- Mark as Done: Allows users to mark tasks as completed.
+- Search Tasks: Implements a search functionality to filter tasks.
+- Expandable List: Displays tasks in an expandable list format, showing a description and a timestamp of the last update when expanded.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application uses a dummy JSON file as a data repository and implements Server-Side Rendering (SSR) for enhanced performance. URL parameters are utilized to manage search queries and filters, ensuring the application is easily adaptable for future enhancements.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## System Design
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Frontend
 
-## Learn More
+- **React with Next.js**: Used for building the user interface and handling SSR.
+- **TypeScript**: Provides type safety and helps in catching errors during development.
+- **Tailwind CSS**: Used for styling components to ensure scoped and maintainable styles.
 
-To learn more about Next.js, take a look at the following resources:
+### Backend
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Dummy JSON Data**: A `todos.json` file is used as the data source for tasks.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Implementation
 
-## Deploy on Vercel
+### Folder Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **app**: Contains the main application files including the layout and main page.
+- **components**: Contains the UI components such as AddTask, Appbar, TodoCard, and UpdateTask.
+- **hooks**: Contains custom React hooks.
+- **lib**: Contains utility functions and helper libraries.
+- **public**: Contains static files such as the `todos.json` file.
+- **types**: Contains TypeScript type definitions.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Key Files
+
+- `app/page.tsx`: The main page that handles displaying the todo list, adding tasks, updating tasks, and searching tasks.
+- `components/AddTask.tsx`: Component for adding a new task.
+- `components/Appbar.tsx`: Component for the application header.
+- `components/todo-card.tsx`: Component for displaying individual todo tasks.
+- `components/updateTask.tsx`: Component for updating an existing task.
+- `public/todos.json`: The dummy JSON data file used as the data source.
+
+## Setup and Run the Application
+
+### Prerequisites
+
+- Node.js
+- npm
+
+### Installation
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/Habeel-Shamsudeen/helpstir-assignment.git
+    cd helpstir-assignment
+    ```
+
+2. Install the dependencies:
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
+
+3. Run the development server:
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    ```
+
+4. Open your browser and navigate to `http://localhost:3000`.
+
+### Building and Running for Production
+
+1. Build the application:
+    ```bash
+    npm run build
+    # or
+    yarn build
+    ```
+
+2. Start the production server:
+    ```bash
+    npm start
+    # or
+    yarn start
+    ```
+
+### Configuration
+
+- `next.config.js`: Next.js configuration file.
+- `.eslintrc.json`: ESLint configuration file.
+- `tsconfig.json`: TypeScript configuration file.
+
+## Future Enhancements
+
+- Implement a real backend with a database for persistent data storage.
+- Add user authentication to manage tasks for multiple users.
+- Improve the UI/UX with better styling and responsiveness.
+- use state management library for better state management.
+
+
+## Contact
+
+For any questions or feedback, please contact [habeel8075@gmail.com].
+
