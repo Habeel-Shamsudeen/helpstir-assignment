@@ -1,38 +1,37 @@
 [
-    {
-      "id": "a4d5f776-71a4-4e89-a6d5-6f4d76a4e89a",
-      "title": "Buy groceries",
-      "description": "Get milk, eggs, and bread from the store.",
-      "completed": false,
-      "timestamp": "2024-07-31T08:30:00Z"
-    },
-    {
-      "id": "b9c2f715-4b7f-4e72-b9c2-f7154b7f4e72",
-      "title": "Complete homework",
-      "description": "Finish the math and science assignments.",
-      "completed": true,
-      "timestamp": "2024-07-30T14:00:00Z"
-    },
-    {
-      "id": "c6e3d812-3e8d-4c9a-9c6e-3d8123e8d4c9",
-      "title": "Clean the house",
-      "description": "Vacuum the living room and clean the kitchen.",
-      "completed": false,
-      "timestamp": "2024-07-29T10:00:00Z"
-    },
-    {
-      "id": "d7b4a909-5f0b-4d18-b7b4-a9095f0b4d18",
-      "title": "Workout",
-      "description": "Go to the gym for a strength training session.",
-      "completed": false,
-      "timestamp": "2024-07-31T17:00:00Z"
-    },
-    {
-      "id": "e8d2c321-6f8c-4f3b-a8d2-c3216f8c4f3b",
-      "title": "Read a book",
-      "description": "Finish reading 'The Pragmatic Programmer'.",
-      "completed": false,
-      "timestamp": "2024-07-30T20:00:00Z"
-    }
-  ]
-  
+  {
+    "id": "a4d5f776-71a4-4e89-a6d5-6f4d76a4e89a",
+    "title": "Buy groceries",
+    "description": "Get milk, eggs, and bread from the store.",
+    "completed": false,
+    "timestamp": "2024-07-31T08:30:00Z"
+  },
+  {
+    "id": "b9c2f715-4b7f-4e72-b9c2-f7154b7f4e72",
+    "title": "Complete homework",
+    "description": "Finish the math and science assignments.",
+    "completed": true,
+    "timestamp": "2024-07-30T14:00:00Z"
+  },
+  {
+    "id": "c6e3d812-3e8d-4c9a-9c6e-3d8123e8d4c9",
+    "title": "Clean the house",
+    "description": "Vacuum the living room and clean the kitchen.",
+    "completed": false,
+    "timestamp": "2024-07-29T10:00:00Z"
+  },
+  {
+    "id": "d7b4a909-5f0b-4d18-b7b4-a9095f0b4d18",
+    "title": "Workout",
+    "description": "Go to the gym for a strength training session.",
+    "completed": false,
+    "timestamp": "2024-07-31T17:00:00Z"
+  },
+  {
+    "id": "e8d2c321-6f8c-4f3b-a8d2-c3216f8c4f3b",
+    "title": "Read a book",
+    "description": "Finish reading 'The Pragmatic Programmer'.",
+    "completed": false,
+    "timestamp": "2024-07-30T20:00:00Z"
+  }
+]

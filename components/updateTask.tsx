@@ -8,22 +8,21 @@ import {
   DialogDescription,
   DialogFooter,
 } from "@/components/ui/dialog";
-import { PlusIcon } from "./ui/Icons";
+import { FilePenIcon } from "./ui/Icons";
 import { Button } from "./ui/button";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { useState } from "react";
-import { v4 } from "uuid";
 import { Task } from "@/types/globalinterfaces";
 import { useToast } from "@/components/ui/use-toast";
 
-export default function AddTask({setTodos}:{setTodos:any}) {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+export default function UpdateTask({currentTask,setTodos}:{currentTask:Task,setTodos:any}) {
+  const [title, setTitle] = useState(currentTask.title);
+  const [description, setDescription] = useState(currentTask.description);
   const { toast } = useToast();
   const onSubmitHandler = () => {
-    if (title.length === 0) { // Do not add task if title is empty
+    if (title.length === 0) { // cannot update task if title is empty
       toast({
         title: "Warning: Empty Title",
         description: "Title should not be empty",
@@ -31,17 +30,19 @@ export default function AddTask({setTodos}:{setTodos:any}) {
       return;
     }
     try {
-      const newTask: Task = {
-        id: v4(), //generate uuid
+      const updatedTask: Task = {
+        id: currentTask.id, //generate uuid
         title,
         description,
-        completed: false,
+        completed: currentTask.completed,
         timestamp: new Date().toISOString(),
       };
-      setTodos((todos:[Task])=> [...todos,newTask]) // add the new task to the todos state
+      setTodos((todos:[Task])=> todos.map((task) =>
+        task.id === currentTask.id ? { ...task, title:updatedTask.title, description:updatedTask.description } : task
+      ))
       toast({
-        title: "Task: "+newTask.title,
-        description: "Added successfully"
+        title: "Task: "+updatedTask.title,
+        description: "Updated successfully"
       });
       setTitle("");
       setDescription("");
@@ -54,16 +55,16 @@ export default function AddTask({setTodos}:{setTodos:any}) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" size="sm">
-          <PlusIcon className="w-5 h-5" />
-          <span>Add a Task</span>
+        <Button variant="outline" size="sm" className="flex gap-2">
+          <FilePenIcon className="w-4 h-4" />
+          <span>Edit</span>
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] max-w-sm rounded-md">
         <DialogHeader>
-          <DialogTitle className="text-center text-lg">Add a Task</DialogTitle>
+          <DialogTitle className="text-center text-lg">Edit Task</DialogTitle>
           <DialogDescription className="text-center">
-            Enter the details to add a new task. Click Add when you're done.
+            Edit the details the current task. Click Save when you're done.
           </DialogDescription>
         </DialogHeader>
         <div className="flex flex-col gap-10">
@@ -95,7 +96,7 @@ export default function AddTask({setTodos}:{setTodos:any}) {
         </div>
         <DialogFooter>
           <Button className="w-full" onClick={onSubmitHandler}>
-            Add
+            Save
           </Button>
         </DialogFooter>
       </DialogContent>
