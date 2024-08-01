@@ -1,15 +1,18 @@
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { SearchIcon } from "./Icons"
-
-export function SearchBar({setFilter}:{setFilter:any}) {
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { SearchIcon } from "./Icons";
+import { useRouter } from "next/navigation";
+export function SearchBar() {
+  const router = useRouter();
   return (
-    <div className="flex w-full max-w-md items-center space-x-2">
+    <div className="flex w-full max-w-md items-center space-x-2 lg:max-w-xl">
       <Input
         type="search"
         placeholder="Search..."
         className="flex-1 rounded-lg border border-input bg-background px-4 py-2 text-sm shadow-sm transition-colors focus:outline-none focus:ring-1 focus:ring-primary"
-        onChange={(e)=>setFilter(e.target.value)}
+        onChange={(e) => {
+          router.push(`/?search=${e.target.value}`); //push the input to the url
+        }}
       />
       <Button
         type="submit"
@@ -19,6 +22,5 @@ export function SearchBar({setFilter}:{setFilter:any}) {
         <span className="sr-only">Search</span>
       </Button>
     </div>
-  )
+  );
 }
-

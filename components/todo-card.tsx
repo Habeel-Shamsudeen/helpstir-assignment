@@ -23,7 +23,7 @@ export default function TodoCard({
   };
   return (
     <Card
-      className={`border-l-4 ${
+      className={`border-l-4 my-2 ${
         task.completed
           ? "border-green-500 bg-green-50 dark:bg-green-900/20"
           : "border-gray-300 dark:border-gray-600"
@@ -59,10 +59,10 @@ export default function TodoCard({
         <CardContent>
           <p className="text-gray-600 dark:text-gray-400">{task.description}</p>
           <div className="mt-2 text-sm text-gray-500 dark:text-gray-400">
-            Last updated: {task.timestamp}
+            Last updated: {new Date(task.timestamp).toLocaleString("en-us")}
           </div>
           <div className="mt-4 flex justify-end gap-2">
-            <UpdateTask currentTask={task} setTodos={setTodos}/>
+            <UpdateTask currentTask={task} setTodos={setTodos} />
           </div>
         </CardContent>
       )}

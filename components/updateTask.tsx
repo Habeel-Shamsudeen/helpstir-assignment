@@ -17,12 +17,19 @@ import { useState } from "react";
 import { Task } from "@/types/globalinterfaces";
 import { useToast } from "@/components/ui/use-toast";
 
-export default function UpdateTask({currentTask,setTodos}:{currentTask:Task,setTodos:any}) {
+export default function UpdateTask({
+  currentTask,
+  setTodos,
+}: {
+  currentTask: Task;
+  setTodos: any;
+}) {
   const [title, setTitle] = useState(currentTask.title);
   const [description, setDescription] = useState(currentTask.description);
   const { toast } = useToast();
   const onSubmitHandler = () => {
-    if (title.length === 0) { // cannot update task if title is empty
+     // cannot update task if title is empty
+    if (title.length === 0) {
       toast({
         title: "Warning: Empty Title",
         description: "Title should not be empty",
@@ -31,18 +38,27 @@ export default function UpdateTask({currentTask,setTodos}:{currentTask:Task,setT
     }
     try {
       const updatedTask: Task = {
-        id: currentTask.id, //generate uuid
+        id: currentTask.id,
         title,
         description,
         completed: currentTask.completed,
         timestamp: new Date().toISOString(),
       };
-      setTodos((todos:[Task])=> todos.map((task) =>
-        task.id === currentTask.id ? { ...task, title:updatedTask.title, description:updatedTask.description } : task
-      ))
+      setTodos((todos: [Task]) =>
+        todos.map((task) =>
+          task.id === currentTask.id
+            ? {
+                ...task,
+                title: updatedTask.title,
+                description: updatedTask.description,
+                timestamp: updatedTask.timestamp,
+              }
+            : task
+        )
+      );
       toast({
-        title: "Task: "+updatedTask.title,
-        description: "Updated successfully"
+        title: "Task: " + updatedTask.title,
+        description: "Updated successfully",
       });
       setTitle("");
       setDescription("");
