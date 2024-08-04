@@ -14,7 +14,7 @@ import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { useState } from "react";
-import { Task } from "@/types/globalinterfaces";
+import { Task } from "@/lib/globalinterfaces";
 import { useToast } from "@/components/ui/use-toast";
 
 export default function UpdateTask({

@@ -2,10 +2,10 @@
 import Appbar from "@/components/Appbar";
 import { SearchBar } from "@/components/ui/searchbar";
 import TodoCard from "@/components/todo-card";
-import { useDebounce } from "@/hooks";
+import { useDebounce } from "@/lib/hooks";
 import { useEffect, useState } from "react";
 import todoList from "../public/todos.json";
-import { Task } from "@/types/globalinterfaces";
+import { Task } from "@/lib/globalinterfaces";
 import { useSearchParams } from "next/navigation";
 
 export default function Home() {

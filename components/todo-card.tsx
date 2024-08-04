@@ -1,7 +1,7 @@
 "use client";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Task } from "@/types/globalinterfaces";
+import { Task } from "@/lib/globalinterfaces";
 import { Button } from "./ui/button";
 import { ChevronDownIcon } from "./ui/Icons";
 import { useState } from "react";

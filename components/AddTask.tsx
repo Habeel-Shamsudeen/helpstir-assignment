@@ -15,7 +15,7 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { useState } from "react";
 import { v4 } from "uuid";
-import { Task } from "@/types/globalinterfaces";
+import { Task } from "@/lib/globalinterfaces";
 import { useToast } from "@/components/ui/use-toast";
 
 export default function AddTask({setTodos}:{setTodos:any}) {
